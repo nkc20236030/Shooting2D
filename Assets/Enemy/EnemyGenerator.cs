@@ -1,38 +1,32 @@
+//----------------------------------------------------------------------------------------
+// ‰È–ÚFƒQ[ƒ€ƒvƒƒOƒ‰ƒ~ƒ“ƒO
+// “à—eF“G¶¬
+// ’S“–FKen.D.Ohishi 2023.06.06
+//----------------------------------------------------------------------------------------
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    public GameObject enemyPre; // “G‚ÌƒvƒŒƒnƒu‚ð•Û‘¶‚·‚é•Ï”
-    float delta;                // Œo‰ßŽžŠÔŒvŽZ—p
-    float span;                 // “G‚ðo‚·ŠÔŠui•bj‚ð•Û‘¶‚·‚é•Ï”
+    public GameObject EnemyPre; // “G‚ÌƒvƒŒƒnƒu‚ð•Û‘¶‚·‚é•Ï”
+    float span = 1;             // “G‚ðo‚·ŠÔŠui•bj
+    float delta = 0;            // ŽžŠÔŒvŽZ—p•Ï”
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        delta = 0;
-        span = 1f;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        // Œo‰ßŽžŠÔ‚ð‰ÁŽZ
-        delta += Time.deltaTime;
+        delta += Time.deltaTime; // Œo‰ßŽžŠÔ‚ðŒvŽZ
 
-        if (delta > span)
+        // span•b–ˆ‚Éˆ—‚ðs‚¤
+        if(delta > span)
         {
-            // “G‚ð¶¬‚·‚é
-            GameObject go = Instantiate(enemyPre);
-            float py = Random.Range(-6f, 7f);
+            delta = 0;  // ŽžŠÔŒvŽZ—p•Ï”‚ð‚O‚É‚·‚é
+            span -= (span >= 0.5f)? 0.01f : 0f;  // ƒXƒpƒ“‚ð­‚µ‚¸‚Â’Z‚­‚·‚é
+
+            // “G‚ÌƒvƒŒƒnƒu‚ðƒqƒGƒ‰ƒ‹ƒL[‚É“oê‚³‚¹‚é
+            GameObject go = Instantiate(EnemyPre);
+            int py = Random.Range(-5, 6);
             go.transform.position = new Vector3(10, py, 0);
-
-            // ŽžŠÔŒo‰ß‚ð•Û‘¶‚µ‚Ä‚¢‚é•Ï”‚ð0ƒNƒŠƒA‚·‚é
-            delta = 0;
-
-            // “G‚ðo‚·ŠÔŠu‚ð™X‚É’Z‚­‚·‚é
-            span -= (span >= 0.5f)? 0.01f : 0f;
-        } 
+        }
     }
 }
