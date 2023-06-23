@@ -15,7 +15,7 @@ public class EnemyShotController : MonoBehaviour
         player = GameObject.Find("Player").transform;
         
         // 弾の速度
-        speed = 12f;
+        speed = 10f;
 
         // 弾の発射方向（敵の現在地から見たプレーヤーの方向）
         dir = player.position - transform.position;
