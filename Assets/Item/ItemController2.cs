@@ -11,11 +11,11 @@ public class ItemController2 : MonoBehaviour
 
     void Start()
     {
-        itemType = Random.Range(0, 3);  // アイテムの種類0～2
+        itemType = Random.Range(0, 2);  // アイテムの種類0～1
         speed = 5f;                     // 落下速度
 
         // itemType=0:赤 / itemType=1:緑 / itemType=2:青　
-        Color[] col = { Color.red, Color.green, Color.blue };
+        Color[] col = { Color.green, Color.blue };
         spRender = GetComponent<SpriteRenderer>();
         spRender.color = col[itemType];
 
@@ -45,15 +45,11 @@ public class ItemController2 : MonoBehaviour
             PlayerController pCon = c.gameObject.GetComponent<PlayerController>();
 
             // アイテムの種類別に処理を変更
-            if (itemType == 0)       // 赤：弾レベル＋１
-            {
-                pCon.ShotLevel += 1; 
-            }
-            else if (itemType == 1)  // 緑：スピード＋５
+            if (itemType == 0)  // 緑：スピード＋５
             {
                 pCon.Speed += 5;     
             }
-            else if (itemType == 2)  // 青：弾レベル０　スピード５
+            else if (itemType == 1)  // 青：弾レベル０　スピード５
             {
                 pCon.Speed     = 5;
                 pCon.ShotLevel = 0;

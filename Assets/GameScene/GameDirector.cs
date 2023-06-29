@@ -49,7 +49,7 @@ public class GameDirector : MonoBehaviour
     {
         // 距離を60 km/s の速さで増やす
         kyori++;
-        kyoriLabel.text = kyori.ToString("D6") + "km";
+        kyoriLabel.text = kyori.ToString("D6") + "point";
 
         // 距離が600kmで割り切れるときにアイテム出現
         if(kyori % 600 == 0)

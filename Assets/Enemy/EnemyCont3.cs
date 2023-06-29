@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCont2 : MonoBehaviour
+public class EnemyCont3 : MonoBehaviour
 {
+    [SerializeField] GameObject itemObj;          // アイテムオブジェクト
+
     public GameObject ExploPre; // 爆発のプレハブを保存
     float speed;                // 移動速度を保存
     Vector3 dir;                // 移動方向を保存
     GameDirector gd;            // GameDirectorコンポーネントを保存
 
-    Transform player;
-
     void Start()
     {
-        speed = 5;                      // 移動速度
-
+        dir = Vector3.left;             // 移動方向
+        speed = 10;                      // 移動速度
+        Destroy(gameObject, 6);		    // 寿命
         // GameDirectorコンポーネントを保存
         gd = GameObject.Find("GameDirector").GetComponent<GameDirector>();
 
-        player = GameObject.Find("Player").transform;
     }
 
     void Update()
     {
-        dir = player.position - transform.position;
-
+        // 移動処理
         transform.position += dir.normalized * speed * Time.deltaTime;
+
     }
 
     // 重なり判定処理
@@ -56,6 +56,18 @@ public class EnemyCont2 : MonoBehaviour
             // 自分（敵）削除
             Destroy(gameObject);
         }
+
+        // 当たったのがプレイヤーの弾
+        if (other.tag == "PlayerShot")
+        {
+            // アイテムがセットされていれば生成
+            if (itemObj)
+            {
+                Instantiate(itemObj, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
+
     }
 
 }

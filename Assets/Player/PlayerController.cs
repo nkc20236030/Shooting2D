@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         // ZƒL[‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Æ‚«’e‚ð”­ŽË
         timer += Time.deltaTime;
-        if (timer >= 0.3f && Input.GetKey(KeyCode.Z))
+        if (timer >= 0.3f && Input.GetKey(KeyCode.Space))
         {
             timer = 0;
             shotLevel = (shotLevel < 0) ? 0 : shotLevel;
