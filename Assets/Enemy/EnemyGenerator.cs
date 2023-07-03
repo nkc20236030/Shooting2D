@@ -10,7 +10,7 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     public GameObject EnemyPre; // “G‚ÌƒvƒŒƒnƒu‚ğ•Û‘¶‚·‚é•Ï”
-    float span = 1.5f;             // “G‚ğo‚·ŠÔŠui•bj
+    float span = 0.5f;             // “G‚ğo‚·ŠÔŠui•bj
     float delta = 0;            // ŠÔŒvZ—p•Ï”
 
     void Update()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyGene3 : MonoBehaviour
 {
     public GameObject Enemy3Pre; // “G‚ÌƒvƒŒƒnƒu‚ğ•Û‘¶‚·‚é•Ï”
-    float span = 2;             // “G‚ğo‚·ŠÔŠui•bj
+    float span = 10;             // “G‚ğo‚·ŠÔŠui•bj
     float delta = 0;            // ŠÔŒvZ—p•Ï”
 
     void Update()

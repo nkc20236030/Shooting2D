@@ -8,7 +8,7 @@ public class ShotController : MonoBehaviour
 
     void Start()
     {
-        speed = 7f;             // ’e‘¬“x
+        speed = 10f;             // ’e‘¬“x
         Destroy(gameObject, 1.5f); // Žõ–½1.5•b
     }
 

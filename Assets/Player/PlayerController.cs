@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         anm = GetComponent<Animator>(); 
         shotLevel = 0;  // 弾レベル
         timer     = 0;  // 時間初期化
-        speed     = 10; // 初期スピード
+        speed     = 7; // 初期スピード
     }
 
     void Update()
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
         // Zキーが押されているとき弾を発射
         timer += Time.deltaTime;
-        if (timer >= 0.3f && Input.GetKey(KeyCode.Space))
+        if (timer >= 0.5f && Input.GetKey(KeyCode.Space))
         {
             timer = 0;
             shotLevel = (shotLevel < 0) ? 0 : shotLevel;
